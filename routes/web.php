@@ -29,4 +29,8 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function(){
     Route::get('/roles', function () {
         return view('roles');
     })->name('roles');
+
+    Route::get('/teams', function () {
+        return view('teams');
+    })->name('teams');
 });
