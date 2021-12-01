@@ -1,8 +1,8 @@
 <div :class="sidebarOpen ? 'block' : 'hidden'" @click="sidebarOpen = false"
-     class="fixed z-20 inset-0 bg-blue-900 opacity-50 transition-opacity lg:hidden"></div>
+     class="fixed z-20 inset-0 bg-blue-400 opacity-50 transition-opacity lg:hidden"></div>
 
 <div :class="sidebarOpen ? 'translate-x-0 ease-out' : '-translate-x-full ease-in'"
-     class="fixed z-30 inset-y-0 left-0 w-64 transition duration-300 transform bg-gray-900 overflow-y-auto lg:translate-x-0 lg:static lg:inset-0">
+     class="fixed z-30 inset-y-0 left-0 w-64 transition duration-300 transform bg-blue-900 overflow-y-auto lg:translate-x-0 lg:static lg:inset-0">
     <div class="flex items-center justify-center mt-8">
         <div class="flex items-center">
             <svg class="h-12 w-12" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -10,7 +10,7 @@
     <polyline transform="rotate(0,72.5,84.5)" points="52,2 12,64 75,50.5 51,38 50.4,41.9 37.6,49.6" fill="rgb(44, 79, 206)"/>
             </svg>
 
-            <span class="text-white text-2xl mx-2 font-semibold">{{ __('LeiraTech') }}</span>
+            <span class="text-white text-2xl mx-2 font-semibold">{{ env('APP_NAME') }}</span>
         </div>
     </div>
 

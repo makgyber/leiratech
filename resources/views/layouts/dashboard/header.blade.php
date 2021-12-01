@@ -1,4 +1,4 @@
-<header class=" items-center px-1 bg-white border-b-4 border-gray-900 shadow">
+<header class=" items-center px-1 bg-white border-b-2 border-blue-400 shadow-inner">
     <div class="flex items-center">
         
     </div>

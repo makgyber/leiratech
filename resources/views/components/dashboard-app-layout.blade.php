@@ -21,22 +21,23 @@
     <body class="font-sans antialiased">
         <x-jet-banner />
 
-        <div x-data="{ sidebarOpen: false }" class="flex h-screen bg-gray-200 font-roboto">
+        <div x-data="{ sidebarOpen: false }" class="flex h-screen bg-blue-50 font-roboto">
             @include('layouts.dashboard.sidebar')
 
             <div class="flex overflow-hidden flex-col flex-1">
                 @include('layouts.dashboard.header')
 
-                <main class="overflow-y-auto overflow-x-hidden flex-1 bg-gray-200">
-                    <div class="container px-6 py-8 mx-auto">
-                        @if (isset($header))
-                        <h3 class="mb-4 text-3xl font-medium text-gray-700">
-                            {{ $header }}
-                        </h3>
-                        @endif
-                        <main>
+                
+                <main class="overflow-y-auto overflow-x-hidden flex-1">
+                    @if (isset($header))
+                <header class="bg-blue-200 shadow">
+                    <div class="mx-auto py-4 px-4 sm:px-6 lg:px-8">
+                        {{ $header }}
+                    </div>
+                </header>
+                @endif
+                    <div class="container mx-auto">
                             {{ $slot }}
-                        </main>
                     </div>
                 </main>
             </div>
