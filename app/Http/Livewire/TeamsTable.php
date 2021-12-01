@@ -22,6 +22,7 @@ class TeamsTable extends LivewireDatatable
             Column::name('name')
                 ->label('Name')
                 ->searchable()
+                ->editable()
                 ->filterable(),
 
             Column::name('owner.name')
@@ -29,9 +30,11 @@ class TeamsTable extends LivewireDatatable
                 ->searchable()
                 ->filterable(),
                     
-
             BooleanColumn::name('personal_team')
                 ->filterable(),
+
+            Column::delete()
+
         ];
     }
 }
