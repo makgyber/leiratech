@@ -30,12 +30,12 @@
                 
                 <main class="overflow-y-auto overflow-x-hidden flex-1">
                     @if (isset($header))
-                <header class="bg-blue-200 shadow">
-                    <div class="mx-auto py-4 px-4 sm:px-6 lg:px-8">
-                        {{ $header }}
-                    </div>
-                </header>
-                @endif
+                    <header class="bg-blue-200 shadow">
+                        <div class="mx-auto py-4 px-4 sm:px-6 lg:px-8">
+                            {{ $header }}
+                        </div>
+                    </header>
+                    @endif
                     <div class="container mx-auto">
                             {{ $slot }}
                     </div>

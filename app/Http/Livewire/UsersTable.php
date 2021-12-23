@@ -3,6 +3,7 @@
 namespace App\Http\Livewire;
 
 use App\Models\User;
+use Illuminate\Http\Request;
 use Mediconesystems\LivewireDatatables\Http\Livewire\LivewireDatatable;
 use Mediconesystems\LivewireDatatables\NumberColumn;
 use Mediconesystems\LivewireDatatables\Column;
@@ -12,6 +13,10 @@ class UsersTable extends LivewireDatatable
 {
     public $model = User::class;
     public $complex = true;
+    public $exportable = true;
+    public $beforeTableSlot = 'user-actions';
+    public $modal = false;
+    public $open = false;
 
     public function columns()
     {
@@ -35,10 +40,23 @@ class UsersTable extends LivewireDatatable
                 ->searchable()
                 ->filterable(),
 
-            DateColumn::name('created_at')
-                ->label('Created at'),
-
-                Column::delete()
+            Column::callback(['id', 'name'], function ($id, $name) {
+                return view('table-actions', ['id' => $id, 'name' => $name]);
+            })->unsortable()
         ];
     }
+
+    public function deleteSelected(Request $request)
+    {
+
+        User::whereIn('id', $this->selected)->delete();
+        $this->modal = false;
+        $this->refreshLivewireDatatable();
+    }
+
+    public function store(Request $request)
+    {
+        
+    }
+
 }

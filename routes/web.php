@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Livewire\Users\UserAdd;
+use App\Http\Livewire\Users\UserList;
+use App\Http\Livewire\UsersTable;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -22,9 +25,9 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function(){
         return view('dashboard');
     })->name('dashboard');
 
-    Route::get('/users', function () {
-        return view('users');
-    })->name('users');
+    Route::get('/users', function(){return view('users');})->name('users'); 
+    Route::get('/users/create', function(){return view('users.user-add');})->name('user.create'); 
+
 
     Route::get('/roles', function () {
         return view('roles');
@@ -33,4 +36,4 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function(){
     Route::get('/teams', function () {
         return view('teams');
     })->name('teams');
-});
+});  

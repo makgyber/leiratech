@@ -21,22 +21,26 @@
     <body class="font-sans antialiased">
         <x-jet-banner />
 
-        <div class="min-h-screen bg-gray-100">
-            @livewire('navigation-menu')
+        <div x-data="{ sidebarOpen: false }" class="flex h-screen bg-blue-50 font-roboto">
+            @include('layouts.dashboard.sidebar')
 
-            <!-- Page Heading -->
-            @if (isset($header))
-                <header class="bg-white shadow">
-                    <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-                        {{ $header }}
+            <div class="flex overflow-hidden flex-col flex-1">
+                @include('layouts.dashboard.header')
+
+                
+                <main class="overflow-y-auto overflow-x-hidden flex-1">
+                    @if (isset($header))
+                    <header class="bg-blue-200 shadow">
+                        <div class="mx-auto py-4 px-4 sm:px-6 lg:px-8">
+                            {{ $header }}
+                        </div>
+                    </header>
+                    @endif
+                    <div class="container mx-auto">
+                            {{ $slot }}
                     </div>
-                </header>
-            @endif
-
-            <!-- Page Content -->
-            <main>
-                {{ $slot }}
-            </main>
+                </main>
+            </div>
         </div>
 
         @stack('modals')
